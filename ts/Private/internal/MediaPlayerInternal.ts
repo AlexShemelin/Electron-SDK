@@ -1,6 +1,6 @@
 import { createCheckers } from 'ts-interface-checker';
 
-import { AgoraEnv, logWarn } from '../../Utils';
+import { logWarn } from '../../Utils';
 
 import { ErrorCodeType } from '../AgoraBase';
 import {
@@ -8,7 +8,6 @@ import {
   IAudioSpectrumObserver,
   RawAudioFrameOpModeType,
   RenderModeType,
-  VideoSourceType,
 } from '../AgoraMediaBase';
 import { IMediaPlayerVideoFrameObserver } from '../IAgoraMediaPlayer';
 import { IMediaPlayerSourceObserver } from '../IAgoraMediaPlayerSource';
@@ -304,31 +303,13 @@ export class MediaPlayerInternal extends IMediaPlayerImpl {
 
   override setView(view: HTMLElement): number {
     logWarn('Also can use other api setupLocalVideo');
-    return (
-      AgoraEnv.AgoraRendererManager?.setupVideo({
-        videoSourceType: VideoSourceType.VideoSourceMediaPlayer,
-        uid: this._mediaPlayerId,
-        view,
-      }) ?? -ErrorCodeType.ErrNotInitialized
-    );
+    return 0;
   }
 
   override setRenderMode(renderMode: RenderModeType): number {
     logWarn(
       'Also can use other api setRenderOption or setRenderOptionByConfig'
     );
-    return (
-      AgoraEnv.AgoraRendererManager?.setRenderOptionByConfig({
-        videoSourceType: VideoSourceType.VideoSourceMediaPlayer,
-        uid: this._mediaPlayerId,
-        rendererOptions: {
-          contentMode:
-            renderMode === RenderModeType.RenderModeFit
-              ? RenderModeType.RenderModeFit
-              : RenderModeType.RenderModeHidden,
-          mirror: true,
-        },
-      }) ?? -ErrorCodeType.ErrNotInitialized
-    );
+    return 0;
   }
 }

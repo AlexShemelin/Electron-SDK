@@ -1,5 +1,4 @@
 import { RenderModeType, VideoSourceType } from './Private/AgoraMediaBase';
-import { IRenderer, IRendererManager } from './Renderer';
 
 /**
  * @ignore
@@ -30,7 +29,7 @@ export interface AgoraEnvType extends AgoraEnvOptions {
   /**
    * @ignore
    */
-  AgoraRendererManager?: IRendererManager;
+  AgoraRendererManager?: any;
 }
 
 /**
@@ -291,7 +290,7 @@ export interface RenderConfig {
   /**
    * @ignore
    */
-  renders: IRenderer[];
+  renders: any[];
   /**
    * @ignore
    */

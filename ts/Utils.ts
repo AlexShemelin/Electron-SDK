@@ -1,8 +1,6 @@
 import { VideoSourceType } from './Private/AgoraMediaBase';
 import {
   AgoraEnvType,
-  FormatRendererVideoConfig,
-  RendererVideoConfig,
 } from './Types';
 
 /**
@@ -135,27 +133,6 @@ export const formatConfigByVideoSourceType = (
       break;
   }
   return { uid, channelId, videoSourceType };
-};
-
-/**
- * @ignore
- */
-export const getDefaultRendererVideoConfig = (
-  config: RendererVideoConfig
-): FormatRendererVideoConfig => {
-  const rendererOptions = Object.assign(
-    {},
-    AgoraEnv.AgoraRendererManager?.defaultRenderConfig?.rendererOptions,
-    config.rendererOptions
-  );
-
-  const { uid, channelId, videoSourceType } = formatConfigByVideoSourceType(
-    config.videoSourceType,
-    config.channelId,
-    config.uid
-  );
-
-  return { ...config, uid, channelId, videoSourceType, rendererOptions };
 };
 
 /**

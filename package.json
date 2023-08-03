@@ -130,8 +130,7 @@
     "shelljs": "^0.8.4",
     "ts-interface-checker": "^1.0.2",
     "winston": "^3.3.3",
-    "yuv-buffer": "1.0.0",
-    "yuv-canvas": "1.2.6"
+    "yuv-buffer": "1.0.0"
   },
   "agora_electron": {
     "iris_sdk_win": "https://download.agora.io/sdk/release/iris_4.2.2-build.1_DCG_Windows_Video_20230727_1158.zip",
